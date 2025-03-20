@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover, .navbar a:focus {
+            background-color: #575757;
+        }
+        .navbar-left, .navbar-right {
+            display: flex;
+        }
+        .navbar-right a {
+            margin-left: 10px;
+        }
+        .font-size-changer {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            color: white; /* Fixed font size text color */
+        }
+        .font-size-changer button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-left: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .font-size-changer button:hover, .font-size-changer button:focus {
+            background-color: #575757;
+        }
+        .content {
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .content h2 {
+            margin-top: 0;
+        }
+        .content p {
+            color: #555;
+        }
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #333;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        .high-contrast {
+            background-color: #1a1a1a; /* Slightly lighter than black */
+            color: white;
+        }
+        .high-contrast .content {
+            background-color: #333; /* Adjusted box background color for high contrast mode */
+            border-color: #444;
+        }
+        .high-contrast .content p {
+            color: white; /* Adjusted content text color for high contrast mode */
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 200px; /* Increased space before the footer */
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 80px;
+        }
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+        .footer-nav a:hover, .footer-nav a:focus {
+            background-color: #575757;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="navbar-left">
+            <a href="Home.html" aria-label="Home">Home</a>
+            <a href="Aboutus.html" aria-label="About Us">About Us</a>
+            <a href="#support" aria-label="Support">Support</a>
+            <a href="#" aria-label="Toggle High Contrast Mode" onclick="toggleHighContrast()">Contrast</a>
+        </div>
+        <div class="font-size-changer">
+            <span>Font Size:</span>
+            <button onclick="changeFontSize('increase')">A+</button>
+            <button onclick="changeFontSize('decrease')">A-</button>
+        </div>
+        <div class="navbar-right">
+            <a href="#signin" aria-label="Sign In">Sign In</a>
+            <a href="#login" aria-label="Login">Login</a>
+        </div>
+    </div>
+    <main id="main-content" role="main">
+        <div class="content">
+            <h2>About Us</h2>
+            <p>Welcome to our company! We are dedicated to providing the best services and products to our customers. Our team is committed to excellence and innovation.</p>
+        </div>
+        <div class="content">
+            <h2>Our Mission</h2>
+            <p>Our mission is to deliver high-quality solutions that meet the needs of our clients. We strive to exceed expectations and continuously improve our offerings.</p>
+        </div>
+        <div class="content">
+            <h2>Our Values</h2>
+            <p>We value integrity, customer satisfaction, and teamwork. These principles guide our actions and help us achieve our goals.</p>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-nav">
+            <a href="Home.html" aria-label="Home">Home</a>
+            <a href="Aboutus.html" aria-label="About Us">About Us</a>
+            <a href="#support" aria-label="Support">Support</a>
+            <a href="#contact" aria-label="Contact">Contact</a>
+        </div>
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+        <p>Contact us: info@yourcompany.com | +44 1234 567890</p>
+    </footer>
+    <script>
+        function toggleHighContrast() {
+            document.body.classList.toggle('high-contrast');
+        }
+
+        function changeFontSize(action) {
+            const body = document.body;
+            let currentSize = parseFloat(window.getComputedStyle(body, null).getPropertyValue('font-size'));
+            if (action === 'increase') {
+                body.style.fontSize = (currentSize + 1) + 'px';
+            } else if (action === 'decrease') {
+                body.style.fontSize = (currentSize - 1) + 'px';
+            }
+        }
+    </script>
+</body>
+</html>
