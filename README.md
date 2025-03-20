@@ -131,3 +131,68 @@ In this example:
 
 The CSS .hoverable:hover selector changes the background color to yellow when the mouse hovers over an element with the class hoverable.
 The JavaScript adds mouseover and mouseout event listeners to each hoverable element to change the background color when the mouse enters and leaves the element.
+
+connect and grab tables to display them
+
+<?php
+//dATABASE CONNECTIO PARAMETERS
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "bean 2";
+
+//$conn = new mysqli($host, $user, $password, $database);
+
+/*if ($conn->connect_error) 
+{
+
+    die("Connection failed: " . $conn->connect_error);
+    
+ }*/
+
+ try {
+    $conn= new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e){
+    echo "Connection failed: " . $e->getMessage();
+} 
+
+ $sql = "SELECT * FROM menu";
+
+ // Fetch Menu for Dropdown
+ //$stmt = $conn->prepare($sql);
+$menu_result = $conn->query($sql);
+
+$menu_options = "";
+
+while ($row = $menu_result->fetch(PDO::FETCH_ASSOC)) {
+
+$menu_options .= "<option value='" . $row['id'] . "'>" . $row['item_name'] . " - $" . $row['price'] . "</option>";
+
+}
+
+
+// Fetch Available Tables and Times
+
+$tables_result = $conn->query("SELECT * FROM tables");
+
+$tables = [];
+
+while ($row = $tables_result->fetch(PDO::FETCH_ASSOC)) {
+
+$tables[] = $row;
+
+}
+
+
+//$conn->close();
+$conn = null;
+
+?>
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
