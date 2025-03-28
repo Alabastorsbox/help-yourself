@@ -196,3 +196,16 @@ $conn = null;
 <html>
 
 <head>
+
+
+
+Include code, pictures of the website, include testing, capture validation (if connection failed), features, email incorrect, password too short, 
+
+Talk about features
+What works and doest work
+Link to software development life cycle
+Journal it
+Step by step considerations, implementations and what you changed
+Try like it to industry standards
+“big button to make it more accessible for multiple devices”
+ 
